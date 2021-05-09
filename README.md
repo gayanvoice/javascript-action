@@ -10,10 +10,10 @@ This repository includes create directory, create Json file, read Json file, git
 
 ### 2. Change the commit.js
 
-Go to <a href="https://github.com/gayanvoice/javascript-action/blob/master/src/git/commit.js">src/git/commit.js</a> and
-change <a href="https://github.com/gayanvoice/javascript-action/blob/master/src/git/commit.js#L6">
+Go to <a href="https://github.com/gayanvoice/github-javascript-action/blob/master/src/git/commit.js">src/git/commit.js</a> and
+change <a href="https://github.com/gayanvoice/github-javascript-action/blob/master/src/git/commit.js#L6">
 user.email</a> with your GitHub account's primary email
-and <a href="https://github.com/gayanvoice/javascript-action/blob/master/src/git/commit.js#L7">
+and <a href="https://github.com/gayanvoice/github-javascript-action/blob/master/src/git/commit.js#L7">
 user.name</a> with your GitHub profile name.
 
 ```javascript
@@ -22,7 +22,7 @@ const core = require('@actions/core');
 
 async function commit() {
     core.info('git commit');
-    exec('git config --global user.email "email@yadex.com"');
+    exec('git config --global user.email "username@mail.com"');
     exec('git config --global user.name "GitHub Name"');
     exec('git add .');
     exec('git commit -m "message"');
