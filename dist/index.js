@@ -10305,8 +10305,10 @@ let git = (function () {
     const git = simpleGit();
     let status = async function () {
         await git.status().then(status => {
+            status = JSON.stringify(status)
             core.info(`Git Status ${status}`)
         }).catch(error => {
+            error = JSON.stringify(error)
             core.info(`Git Status ${error}`)
         })
     }
