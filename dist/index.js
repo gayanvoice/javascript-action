@@ -10305,7 +10305,7 @@ let git = (function () {
     const git = simpleGit();
     let fetch = async function () {
         core.info( `Git Fetch`)
-        git.pull();
+        await git.fetch();
 
     }
     let commit = async function (username, email, branch, message) {
