@@ -13,21 +13,21 @@ let Index = function () {
         const USERNAME = 'github-insights-bot';
         const EMAIL = '82011272+github-insights-bot@users.noreply.github.com';
         const BRANCH = 'main';
+        const ORIGIN = 'origin';
         const MESSAGE = 'Update App';
         await directory.createDirectory(DIRECTORY);
         await directory.createGitIgnore(DIRECTORY);
         let readJson = await file.readJson(PATH);
         core.info(JSON.stringify(readJson));
-        await file.createJson(PATH, JSON_OBJECT);
-        let postJson = await file.readJson(PATH);
-        core.info(JSON.stringify(postJson));
-        try{
-            await git.commit(USERNAME, EMAIL, BRANCH, MESSAGE);
-            await git.push(BRANCH);
-        } catch (error) {
-            core.info(error);
-        }
-
+        // await file.createJson(PATH, JSON_OBJECT);
+        // let postJson = await file.readJson(PATH);
+        // core.info(JSON.stringify(postJson));
+        // try {
+        //     await git.commit(USERNAME, EMAIL, BRANCH, MESSAGE);
+        //     await git.push(BRANCH);
+        // } catch (error) {
+        //     core.info(error);
+        // }
     }
     return {
         run: main,
