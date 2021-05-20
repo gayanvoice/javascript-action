@@ -1,33 +1,32 @@
 const core = require('@actions/core');
-const create_json_file = require('./file/create_json_file');
-const create_directory = require('./file/create_directory');
-const read_json_file = require('./file/read_json_file');
-const commit = require('./git/commit');
-const push = require('./git/push');
+const directory = require('./file/directory');
+const file = require('./file/file');
+const git = require('./git/git');
 
-async function run() {
-  try {
-    const record_directory = 'directory';
-    const json_file = record_directory + '/file.json';
-    await create_directory(record_directory);
-
-    let json_object;
-    try{
-      let file = await read_json_file(json_file);
-      json_object = JSON.parse(JSON.stringify(file));
-      core.info(json_object.date)
-    } catch (e) {
-      core.info(e)
+const JsonFile = require('./model/JsonFile');
+let Index = function () {
+    let main = async function () {
+        const DIRECTORY = 'directory';
+        const FILE = 'file';
+        const PATH = `${DIRECTORY}/${FILE}.json`;
+        const JSON_OBJECT = new JsonFile(new Date());
+        const USERNAME = 'github-insights-bot';
+        const EMAIL = '82011272+github-insights-bot@users.noreply.github.com';
+        const BRANCH = 'main';
+        const MESSAGE = 'Update App';
+        await directory.createDirectory(DIRECTORY);
+        await directory.createGitIgnore(DIRECTORY);
+        let readJson = await file.readJson(PATH);
+        core.info(JSON.stringify(readJson));
+        await file.createJson(PATH, JSON_OBJECT);
+        let postJson = await file.readJson(PATH);
+        core.info(JSON.stringify(postJson));
+        await git.commit(USERNAME, EMAIL, BRANCH, MESSAGE);
+        await git.push(BRANCH);
     }
-
-    await create_json_file(record_directory, json_file, {  date: new Date() });
-    await commit();
-    await push();
-  } catch (error) {
-    core.setFailed(error.message);
-  }
-}
-
-run()
-    .then(() => core.info('running'))
-    .catch(() => core.info('not running'));
+    return {
+        run: main,
+    };
+}();
+Index.run().then(() => {
+});

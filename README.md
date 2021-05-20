@@ -8,12 +8,12 @@ This repository includes create directory, create Json file, read Json file, git
 
 ### 1. Folk the repository
 
-### 2. Change the commit.js
+### 2. Change the git.js
 
-Go to <a href="https://github.com/gayanvoice/github-javascript-action/blob/master/src/git/commit.js">src/git/commit.js</a> and
-change <a href="https://github.com/gayanvoice/github-javascript-action/blob/master/src/git/commit.js#L6">
+Go to <a href="https://github.com/gayanvoice/github-javascript-action/blob/master/src/git/git.js">src/git/git.js</a> and
+change <a href="https://github.com/gayanvoice/github-javascript-action/blob/master/src/git/git.js#L6">
 user.email</a> with your GitHub account's primary email
-and <a href="https://github.com/gayanvoice/github-javascript-action/blob/master/src/git/commit.js#L7">
+and <a href="https://github.com/gayanvoice/github-javascript-action/blob/master/src/git/git.js#L7">
 user.name</a> with your GitHub profile name.
 
 ```javascript

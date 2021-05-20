@@ -3541,11 +3541,9 @@ module.exports = commit
 const { exec } = __nccwpck_require__(3129);
 const core = __nccwpck_require__(2186);
 
-let push = function () {
-    return new Promise(() => {
-        core.info('git push');
-        exec('git push');
-    });
+let push = async function () {
+    core.info('git push');
+    exec('git push');
 };
 
 module.exports = push;
