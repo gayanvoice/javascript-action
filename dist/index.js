@@ -10303,6 +10303,10 @@ const core = __nccwpck_require__(2186);
 const simpleGit = __nccwpck_require__(1477);
 let git = (function () {
     const git = simpleGit();
+    let fetch = async function () {
+        core.info( `Git Fetch`)
+        await git.fetch();
+    }
     let commit = async function (username, email, branch, message) {
         core.info( `Git Commit ${message}`)
         await git.addConfig('user.name', username)
@@ -10315,6 +10319,7 @@ let git = (function () {
         await git.push('origin', branch);
     }
     return {
+        fetch: fetch,
         commit: commit,
         push: push
     };
@@ -10341,8 +10346,12 @@ let Index = function () {
         const USERNAME = 'github-insights-bot';
         const EMAIL = '82011272+github-insights-bot@users.noreply.github.com';
         const BRANCH = 'main';
-        const ORIGIN = 'origin';
         const MESSAGE = 'Update App';
+        try {
+            await git.fetch();
+        } catch (error) {
+            core.info(error);
+        }
         await directory.createDirectory(DIRECTORY);
         await directory.createGitIgnore(DIRECTORY);
         let readJson = await file.readJson(PATH);
@@ -10351,6 +10360,7 @@ let Index = function () {
         let postJson = await file.readJson(PATH);
         core.info(JSON.stringify(postJson));
         try {
+            await git.fetch();
             await git.commit(USERNAME, EMAIL, BRANCH, MESSAGE);
             await git.push(BRANCH);
         } catch (error) {
