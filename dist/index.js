@@ -10305,7 +10305,7 @@ let git = (function () {
     const git = simpleGit();
     let fetch = async function () {
         core.info( `Git Fetch`)
-        git.fetch();
+        git.pull();
 
     }
     let commit = async function (username, email, branch, message) {
@@ -10358,7 +10358,6 @@ let Index = function () {
         let postJson = await file.readJson(PATH);
         core.info(JSON.stringify(postJson));
         try {
-            await git.fetch();
             await git.commit(USERNAME, EMAIL, BRANCH, MESSAGE);
             await git.push(BRANCH);
         } catch (error) {

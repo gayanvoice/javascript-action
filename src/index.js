@@ -24,7 +24,6 @@ let Index = function () {
         let postJson = await file.readJson(PATH);
         core.info(JSON.stringify(postJson));
         try {
-            await git.fetch();
             await git.commit(USERNAME, EMAIL, BRANCH, MESSAGE);
             await git.push(BRANCH);
         } catch (error) {
