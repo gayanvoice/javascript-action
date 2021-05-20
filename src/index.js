@@ -21,8 +21,13 @@ let Index = function () {
         await file.createJson(PATH, JSON_OBJECT);
         let postJson = await file.readJson(PATH);
         core.info(JSON.stringify(postJson));
-        await git.commit(USERNAME, EMAIL, BRANCH, MESSAGE);
-        await git.push(BRANCH);
+        try{
+            await git.commit(USERNAME, EMAIL, BRANCH, MESSAGE);
+            await git.push(BRANCH);
+        } catch (error) {
+            core.info(error);
+        }
+
     }
     return {
         run: main,
