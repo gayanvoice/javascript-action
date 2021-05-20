@@ -3526,8 +3526,8 @@ const core = __nccwpck_require__(2186);
 
 async function commit(){
     core.info('git commit');
-    exec('git config --global user.email "sinhalanewsbot@yadex.com"');
-    exec('git config --global user.name "Sinhala News Info"');
+    exec('git config --global user.email "email@yadex.com"');
+    exec('git config --global user.name "GitHub Name"');
     exec('git add .');
     exec('git commit -m "message"');
 }
