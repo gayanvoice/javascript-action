@@ -2,11 +2,9 @@ const core = require('@actions/core');
 const directory = require('./file/directory');
 const file = require('./file/file');
 const git = require('./git/git');
-
 const JsonFile = require('./model/JsonFile');
 let Index = function () {
     let main = async function () {
-
         const DIRECTORY = 'cache';
         const FILE = 'apple';
         const PATH = `${DIRECTORY}/${FILE}.json`;
@@ -23,12 +21,8 @@ let Index = function () {
         await file.createJson(PATH, JSON_OBJECT);
         let postJson = await file.readJson(PATH);
         core.info(JSON.stringify(postJson));
-        try {
-            await git.commit(USERNAME, EMAIL, BRANCH, MESSAGE);
-            await git.push(BRANCH);
-        } catch (error) {
-            core.info(error);
-        }
+        await git.commit(USERNAME, EMAIL, BRANCH, MESSAGE);
+        await git.push(BRANCH);
     }
     return {
         run: main,

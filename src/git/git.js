@@ -4,19 +4,30 @@ let git = (function () {
     const git = simpleGit();
     let pull = async function () {
         core.info( `Git Pull`)
-        await git.pull();
-
+        try {
+            await git.pull();
+        } catch (error) {
+            core.info(error);
+        }
     }
     let commit = async function (username, email, branch, message) {
         core.info( `Git Commit ${message}`)
-        await git.addConfig('user.name', username)
-        await git.addConfig('user.email', email)
-        await git.add('./*')
-        await git.commit(message)
+        try {
+            await git.addConfig('user.name', username)
+            await git.addConfig('user.email', email)
+            await git.add('./*')
+            await git.commit(message)
+        } catch (error) {
+            core.info(error);
+        }
     }
     let push = async function (branch) {
         core.info( `Git Push`)
-        await git.push('origin', branch);
+        try {
+            await git.push('origin', branch);
+        } catch (error) {
+            core.info(error);
+        }
     }
     return {
         pull: pull,
