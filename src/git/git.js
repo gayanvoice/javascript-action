@@ -11,7 +11,7 @@ let git = (function () {
     }
     let push = async function (branch) {
         core.info( `Git Push`)
-        await git.push('origin', branch, {'--help': null});
+        await git.push('origin', branch);
     }
     return {
         commit: commit,
