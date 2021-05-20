@@ -3474,11 +3474,10 @@ const core = __nccwpck_require__(2186);
 
 async function create_directory(directory){
     core.info('create directory - ' + directory);
-    exec('mkdir -p ' + directory);
+    exec('mkdir ' + directory);
     exec('cd ' + directory);
     exec('touch ' + directory + '/.gitkeep');
 }
-
 module.exports = create_directory;
 
 /***/ }),
@@ -3565,7 +3564,7 @@ const push = __nccwpck_require__(6960);
 
 async function run() {
   try {
-    const record_directory = 'directory';
+    const record_directory = './directory';
     const json_file = record_directory + '/file.json';
     await create_directory(record_directory);
 
@@ -3577,7 +3576,7 @@ async function run() {
       core.info(e)
     }
 
-    await create_json_file(record_directory, json_file, {  date: new Date().getTime() });
+    await create_json_file(record_directory, json_file, {  date: new Date() });
     await commit();
     await push();
   } catch (error) {

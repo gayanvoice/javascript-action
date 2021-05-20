@@ -19,7 +19,7 @@ async function run() {
       core.info(e)
     }
 
-    await create_json_file(record_directory, json_file, {  date: new Date().getTime() });
+    await create_json_file(record_directory, json_file, {  date: new Date() });
     await commit();
     await push();
   } catch (error) {
