@@ -3564,13 +3564,14 @@ const push = __nccwpck_require__(6960);
 
 async function run() {
   try {
-    const record_directory = './directory';
+    const record_directory = 'directory';
     const json_file = record_directory + '/file.json';
     await create_directory(record_directory);
 
     let json_object;
     try{
-      json_object = JSON.parse(JSON.stringify(await read_json_file(json_file)));
+      let file = await read_json_file(json_file);
+      json_object = JSON.parse(JSON.stringify(file));
       core.info(json_object.date)
     } catch (e) {
       core.info(e)
