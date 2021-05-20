@@ -10303,23 +10303,36 @@ const core = __nccwpck_require__(2186);
 const simpleGit = __nccwpck_require__(1477);
 let git = (function () {
     const git = simpleGit();
-    let fetch = async function () {
-        core.info( `Git Fetch`)
-        await git.pull();
+    let status = async function () {
+        await git.status().then(status => {
+            core.info(`Git Status ${status}`)
+        }).catch(error => {
+            core.info(`Git Status ${error}`)
+        })
+    }
+    let pull = async function () {
+        core.info( `Git Pull`)
+        git.pull();
+        await status();
+
     }
     let commit = async function (username, email, branch, message) {
         core.info( `Git Commit ${message}`)
         await git.addConfig('user.name', username)
         await git.addConfig('user.email', email)
+        await status();
         await git.add('./*')
+        await status();
         await git.commit(message)
+        await status();
     }
     let push = async function (branch) {
         core.info( `Git Push`)
         await git.push('origin', branch);
+        await status();
     }
     return {
-        fetch: fetch,
+        pull: pull,
         commit: commit,
         push: push
     };
@@ -10347,11 +10360,7 @@ let Index = function () {
         const EMAIL = '82011272+github-insights-bot@users.noreply.github.com';
         const BRANCH = 'main';
         const MESSAGE = 'Update App';
-        try {
-            await git.fetch();
-        } catch (error) {
-            core.info(error);
-        }
+        await git.pull();
         await directory.createDirectory(DIRECTORY);
         await directory.createGitIgnore(DIRECTORY);
         let readJson = await file.readJson(PATH);
@@ -10360,7 +10369,6 @@ let Index = function () {
         let postJson = await file.readJson(PATH);
         core.info(JSON.stringify(postJson));
         try {
-            await git.fetch();
             await git.commit(USERNAME, EMAIL, BRANCH, MESSAGE);
             await git.push(BRANCH);
         } catch (error) {
