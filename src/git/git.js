@@ -2,8 +2,8 @@ const core = require('@actions/core');
 const simpleGit = require('simple-git');
 let git = (function () {
     const git = simpleGit();
-    let fetch = async function () {
-        core.info( `Git Fetch`)
+    let pull = async function () {
+        core.info( `Git Pull`)
         await git.pull();
 
     }
@@ -19,7 +19,7 @@ let git = (function () {
         await git.push('origin', branch);
     }
     return {
-        fetch: fetch,
+        pull: pull,
         commit: commit,
         push: push
     };

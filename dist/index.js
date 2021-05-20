@@ -10303,8 +10303,8 @@ const core = __nccwpck_require__(2186);
 const simpleGit = __nccwpck_require__(1477);
 let git = (function () {
     const git = simpleGit();
-    let fetch = async function () {
-        core.info( `Git Fetch`)
+    let pull = async function () {
+        core.info( `Git Pull`)
         await git.pull();
 
     }
@@ -10320,7 +10320,7 @@ let git = (function () {
         await git.push('origin', branch);
     }
     return {
-        fetch: fetch,
+        pull: pull,
         commit: commit,
         push: push
     };
@@ -10349,7 +10349,7 @@ let Index = function () {
         const EMAIL = '82011272+github-insights-bot@users.noreply.github.com';
         const BRANCH = 'main';
         const MESSAGE = 'Update App';
-        await git.fetch();
+        await git.pull();
         await directory.createDirectory(DIRECTORY);
         await directory.createGitIgnore(DIRECTORY);
         let readJson = await file.readJson(PATH);

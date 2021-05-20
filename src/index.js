@@ -15,7 +15,7 @@ let Index = function () {
         const EMAIL = '82011272+github-insights-bot@users.noreply.github.com';
         const BRANCH = 'main';
         const MESSAGE = 'Update App';
-        await git.fetch();
+        await git.pull();
         await directory.createDirectory(DIRECTORY);
         await directory.createGitIgnore(DIRECTORY);
         let readJson = await file.readJson(PATH);
