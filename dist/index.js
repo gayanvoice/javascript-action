@@ -10312,7 +10312,7 @@ let git = (function () {
     }
     let push = async function (branch) {
         core.info( `Git Push`)
-        await git.push('origin', branch);
+        await git.push('origin', branch, {'--help': null});
     }
     return {
         commit: commit,
