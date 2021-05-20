@@ -10340,6 +10340,7 @@ const git = __nccwpck_require__(5093);
 const JsonFile = __nccwpck_require__(9237);
 let Index = function () {
     let main = async function () {
+
         const DIRECTORY = 'cache';
         const FILE = 'apple';
         const PATH = `${DIRECTORY}/${FILE}.json`;

@@ -6,6 +6,7 @@ const git = require('./git/git');
 const JsonFile = require('./model/JsonFile');
 let Index = function () {
     let main = async function () {
+
         const DIRECTORY = 'cache';
         const FILE = 'apple';
         const PATH = `${DIRECTORY}/${FILE}.json`;
