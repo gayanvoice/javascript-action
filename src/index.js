@@ -7,7 +7,7 @@ const push = require('./git/push');
 
 async function run() {
   try {
-    const record_directory = 'directory';
+    const record_directory = './directory';
     const json_file = record_directory + '/file.json';
     await create_directory(record_directory);
 
