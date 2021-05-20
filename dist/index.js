@@ -10347,15 +10347,15 @@ let Index = function () {
         await directory.createGitIgnore(DIRECTORY);
         let readJson = await file.readJson(PATH);
         core.info(JSON.stringify(readJson));
-        // await file.createJson(PATH, JSON_OBJECT);
-        // let postJson = await file.readJson(PATH);
-        // core.info(JSON.stringify(postJson));
-        // try {
-        //     await git.commit(USERNAME, EMAIL, BRANCH, MESSAGE);
-        //     await git.push(BRANCH);
-        // } catch (error) {
-        //     core.info(error);
-        // }
+        await file.createJson(PATH, JSON_OBJECT);
+        let postJson = await file.readJson(PATH);
+        core.info(JSON.stringify(postJson));
+        try {
+            await git.commit(USERNAME, EMAIL, BRANCH, MESSAGE);
+            await git.push(BRANCH);
+        } catch (error) {
+            core.info(error);
+        }
     }
     return {
         run: main,
