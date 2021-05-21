@@ -9,8 +9,8 @@ let Index = function () {
         const FILE = 'file';
         const PATH = `${DIRECTORY}/${FILE}.json`;
         const JSON_OBJECT = new JsonFile(new Date());
-        const USERNAME = 'GitHub Insights Bot';
-        const EMAIL = '82011272+github-insights-bot@users.noreply.github.com';
+        const USERNAME = 'Upptime Bot';
+        const EMAIL = '73812536+upptime-bot@users.noreply.github.com';
         const BRANCH = 'main';
         const MESSAGE = 'Update App';
         await git.pull();
