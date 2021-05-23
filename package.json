@@ -1,8 +1,8 @@
 {
   "name": "github-javascript-action",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "GitHub JavaScript Action Template",
-  "main": "dist/cli.js",
+  "main": "dist/index.js",
   "scripts": {
     "lint": "eslint .",
     "prepare": "ncc build src/index.js -o dist --source-map --license licenses.txt",
@@ -12,7 +12,7 @@
   "files": [
     "dist"
   ],
-  "bin": "dist/cli.js",
+  "bin": "dist/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/actions/javascript-action.git"
