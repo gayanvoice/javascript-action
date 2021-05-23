@@ -1,8 +1,8 @@
 {
-  "name": "github-javascript-action",
-  "version": "1.0.0",
-  "description": "JavaScript Action Template",
-  "main": "src/index.js",
+  "name": "@gayanvoice/simple-file",
+  "version": "1",
+  "description": "GitHub JavaScript Action Template",
+  "main": "dist/cli.js",
   "scripts": {
     "lint": "eslint .",
     "prepare": "ncc build src/index.js -o dist --source-map --license licenses.txt",
@@ -18,7 +18,7 @@
     "Actions",
     "JavaScript"
   ],
-  "author": "",
+  "author": "Gayan Kuruppu",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/actions/javascript-action/issues"

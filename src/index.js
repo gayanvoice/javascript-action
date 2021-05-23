@@ -26,8 +26,7 @@ let Index = function () {
         
     }
     return {
-        run: main,
+        main: main,
     };
 }();
-Index.run().then(() => {
-});
+module.exports = Index;
