@@ -1,5 +1,5 @@
 const core = require('@actions/core');
-import { ChartJSNodeCanvas } from "chartjs-node-canvas";
+const ChartJSNodeCanvas = require('chartjs-node-canvas');
 const directory = require('./file/directory');
 const file = require('./file/file');
 const git = require('./git/git');
