@@ -10,6 +10,14 @@ let file = (function () {
             core.info( `Json file has not been updated at ${fileName}`)
         }
     }
+    let createImage = async function (fileName, iamge) {
+        try {
+            await fs.outputFile(fileName, image)
+            core.info( `Image file has been updated at ${fileName}`)
+        } catch (error) {
+            core.info( `Image file has not been updated at ${fileName}`)
+        }
+    }
     let readJson = async function (fileName) {
         try {
             let file = await fs.readJson(fileName);
@@ -20,6 +28,7 @@ let file = (function () {
     }
     return {
         createJson: createJson,
+        createImage: createImage,
         readJson: readJson
     };
 })();
