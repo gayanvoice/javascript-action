@@ -23,6 +23,7 @@ let Index = function () {
         core.info(JSON.stringify(postJson));
         await git.commit(USERNAME, EMAIL, BRANCH, MESSAGE);
         await git.push(BRANCH);
+        
     }
     return {
         run: main,
