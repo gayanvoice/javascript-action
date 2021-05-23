@@ -1,11 +1,12 @@
 const core = require('@actions/core');
+import { ChartJSNodeCanvas } from "chartjs-node-canvas";
 const directory = require('./file/directory');
 const file = require('./file/file');
 const git = require('./git/git');
 const JsonFile = require('./model/JsonFile');
 let Index = function () {
     let main = async function () {
-        console.log("simple run")
+        const canvasRenderService = new ChartJSNodeCanvas({ width: 600, height: 400 });
         const DIRECTORY = 'directory';
         const FILE = 'file';
         const PATH = `${DIRECTORY}/${FILE}.json`;
