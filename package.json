@@ -1,7 +1,7 @@
 {
-  "name": "@gayanvoice/simple-file-javascript",
+  "name": "github-javascript-action",
   "version": "1.0.0",
-  "description": "Simple File Javascript",
+  "description": "GitHub JavaScript Action Template",
   "main": "dist/cli.js",
   "scripts": {
     "lint": "eslint .",
