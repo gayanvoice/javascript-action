@@ -1,6 +1,6 @@
 {
   "name": "github-javascript-action",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "GitHub JavaScript Action Template",
   "main": "dist/cli.js",
   "scripts": {
@@ -12,7 +12,9 @@
   "files": [
     "dist"
   ],
-  "bin": "dist/cli.js",
+  "bin": {
+    "cli-tool" : "dist/cli.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/actions/javascript-action.git"
