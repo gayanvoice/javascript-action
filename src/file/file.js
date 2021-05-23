@@ -10,7 +10,7 @@ let file = (function () {
             core.info( `Json file has not been updated at ${fileName}`)
         }
     }
-    let createImage = async function (fileName, iamge) {
+    let createImage = async function (fileName, image) {
         try {
             await fs.outputFile(fileName, image)
             core.info( `Image file has been updated at ${fileName}`)
