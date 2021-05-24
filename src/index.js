@@ -15,7 +15,7 @@ let Index = function () {
         const EMAIL = '73812536+upptime-bot@users.noreply.github.com';
         const BRANCH = 'main';
         const MESSAGE = 'Update App';
-        core.info(CONFIG_TYPE + ' ' + CONFIG_LABELS + ' ' + CONFIG_DATASET + ' ' + OUTPUT_FILE)
+        core.info(CONFIG_TYPE + ' ' + CONFIG_LABELS + ' ' + JSON.stringify(CONFIG_DATASET) + ' ' + OUTPUT_FILE)
         const configuration = {
             type: CONFIG_TYPE,
             data: {
