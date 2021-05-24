@@ -19,26 +19,23 @@ let Index = function () {
 
         core.info(configType + ' ' + configLabels + ' ' + configDataset + ' ' + configOutputFile)
         core.info(JSON.stringify(configDataset));
+        let datasets = [];
         for(const dataset of configDataset){
+            datasets.push({label: dataset.label,  data: [12, 19, 3, 5, 2, 3], backgroundColor: dataset.backgroundColor, borderColor: dataset.borderColor});
             core.info(dataset.label + ' ' + dataset.data + ' ' + dataset.backgroundColor + ' ' + dataset.borderColor);
         }
-        // const configuration = {
-        //     type: CONFIG_TYPE,
-        //     data: {
-        //         labels: CONFIG_LABELS,
-        //         datasets: [{
-        //             label: '# of Votes',
-        //             data: [12, 19, 3, 5, 2, 3],
-        //             backgroundColor: '#89e0cf',
-        //             borderColor: '#1abc9c'
-        //         }]
-        //     }
-        // };
-        // const image = await chartJSNodeCanvas.renderToBuffer(configuration);
-        // await git.pull();
-        // await file.createImage(OUTPUT_FILE, image);
-        // await git.commit(USERNAME, EMAIL, BRANCH, MESSAGE);
-        // await git.push(BRANCH);
+        const configuration = {
+            type: configType,
+            data: {
+                labels: configLabels,
+                datasets: datasets
+            }
+        };
+        const image = await chartJSNodeCanvas.renderToBuffer(configuration);
+        await git.pull();
+        await file.createImage(OUTPUT_FILE, image);
+        await git.commit(USERNAME, EMAIL, BRANCH, MESSAGE);
+        await git.push(BRANCH);
     }
     return {
         main: main,
