@@ -3,7 +3,6 @@ const args = require('yargs').argv;
 const index = require('./index');
 const CommandModel = require('./model/CommandModel');
 const cli = async () => {
-    const commandModel = new CommandModel(args.config, args.image)
-    return index.main(commandModel);
+    return index.main(new CommandModel(args.configFile, args.outputFile));
 };
 cli().then(() => {});

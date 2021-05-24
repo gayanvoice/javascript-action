@@ -7,6 +7,9 @@ const JsonFile = require('./model/JsonFile');
 let Index = function () {
     let main = async function (commandModel) {
         const chartJSNodeCanvas = new ChartJSNodeCanvas({ width: 600, height: 400 });
+        const CONFIG_FILE = commandModel.configfile;
+        const OUTPUT_FILE = commandModel.outputFile;
+
         // const DIRECTORY = 'directory';
         // const FILE = 'file';
         // // const JSON_PATH = `${DIRECTORY}/${FILE}.json`;
