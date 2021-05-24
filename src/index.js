@@ -10,6 +10,7 @@ let Index = function () {
         const configType = commandModel.type;
         const configLabels = JSON.parse(commandModel.labels);
         const configPrimaryDataset = JSON.parse(commandModel.primaryDataset);
+        const configSecondaryDataset = JSON.parse(commandModel.secondaryDataset);
         const configOutputFile= commandModel.outputFile;
 
         const USERNAME = 'Upptime Bot';
@@ -17,7 +18,7 @@ let Index = function () {
         const BRANCH = 'main';
         const MESSAGE = 'Update App';
 
-        core.info(configType + ' ' + configLabels + ' ' + configPrimaryDataset + ' ' + configOutputFile)
+        core.info(configType + ' ' + configLabels + ' ' + configPrimaryDataset + ' ' + configSecondaryDataset + ''+ configOutputFile)
         // const configuration = {
         //     type: CONFIG_TYPE,
         //     data: {
