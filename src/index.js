@@ -21,7 +21,7 @@ let Index = function () {
         core.info(JSON.stringify(configDataset));
         let datasets = [];
         for(const dataset of configDataset){
-            datasets.push({label: dataset.label,  data: [12, 19, 3, 5, 2, 3], backgroundColor: dataset.backgroundColor, borderColor: dataset.borderColor});
+            datasets.push({label: dataset.label,  data: dataset.data, backgroundColor: dataset.backgroundColor, borderColor: dataset.borderColor});
             core.info(dataset.label + ' ' + dataset.data + ' ' + dataset.backgroundColor + ' ' + dataset.borderColor);
         }
         const configuration = {
