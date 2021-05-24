@@ -33,7 +33,7 @@ let Index = function () {
         };
         const image = await chartJSNodeCanvas.renderToBuffer(configuration);
         await git.pull();
-        await file.createImage(OUTPUT_FILE, image);
+        await file.createImage(configOutputFile, image);
         await git.commit(USERNAME, EMAIL, BRANCH, MESSAGE);
         await git.push(BRANCH);
     }
