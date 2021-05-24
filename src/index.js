@@ -17,7 +17,7 @@ let Index = function () {
         const MESSAGE = 'Update App';
         core.info(CONFIG_TYPE + ' ' + CONFIG_LABELS + ' ' + CONFIG_DATASET + ' ' + OUTPUT_FILE)
         const configuration = {
-            type: 'line',
+            type: `'${CONFIG_TYPE}'`,
             data: {
                 labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
                 datasets: [{
@@ -36,14 +36,7 @@ let Index = function () {
         };
         const image = await chartJSNodeCanvas.renderToBuffer(configuration);
         await git.pull();
-        // await directory.createDirectory(DIRECTORY);
-        // await directory.createGitIgnore(DIRECTORY);
-        // let readJson = await file.readJson(JSON_PATH);
-        // core.info(JSON.stringify(readJson));
-        // await file.createJson(JSON_PATH, JSON_OBJECT);
         await file.createImage(OUTPUT_FILE, image);
-        // let postJson = await file.readJson(JSON_PATH);
-        // core.info(JSON.stringify(postJson));
         await git.commit(USERNAME, EMAIL, BRANCH, MESSAGE);
         await git.push(BRANCH);
     }
