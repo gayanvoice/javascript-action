@@ -1,10 +1,9 @@
 #!/usr/bin/env node
-// const index = require('./index');
 const args = require('yargs').argv;
+const index = require('./index');
+const CommandModel = require('./model/CommandModel');
 const cli = async () => {
-    console.log(args);
-    console.log(`config : ${args.config}`);
-    console.log(`image : ${args.image}`);
-    // return index.main();
+    const commandModel = new CommandModel(args.config, args.image)
+    return index.main(commandModel);
 };
 cli().then(() => {});
