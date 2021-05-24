@@ -7,13 +7,15 @@ const JsonFile = require('./model/JsonFile');
 let Index = function () {
     let main = async function (commandModel) {
         const chartJSNodeCanvas = new ChartJSNodeCanvas({ width: 600, height: 400 });
-        const CONFIG_FILE = commandModel.configFile;
-        const OUTPUT_FILE = commandModel.outputFile;
+        const CONFIG_TYPE = commandModel.type;
+        const CONFIG_LABELS = commandModel.labels;
+        const CONFIG_DATASET = commandModel.dataset;
+        const OUTPUT_FILE= commandModel.outputFile;
         const USERNAME = 'Upptime Bot';
         const EMAIL = '73812536+upptime-bot@users.noreply.github.com';
         const BRANCH = 'main';
         const MESSAGE = 'Update App';
-        core.info(CONFIG_FILE + ' ' + OUTPUT_FILE)
+        core.info(CONFIG_TYPE + ' ' + CONFIG_LABELS + ' ' + CONFIG_DATASET + ' ' + OUTPUT_FILE)
         const configuration = {
             type: 'line',
             data: {
@@ -23,7 +25,13 @@ let Index = function () {
                     data: [12, 19, 3, 5, 2, 3],
                     backgroundColor: 'rgba(255, 99, 132, 0.2)',
                     borderColor:  'rgba(255,99,132,1)',
-                }]
+                },
+                    {
+                        label: '# of People',
+                        data: [20, 50, 32, 70, 82, 78],
+                        backgroundColor: 'rgb(75,255,213)',
+                        borderColor:  'rgb(49,189,162)',
+                    }]
             }
         };
         const image = await chartJSNodeCanvas.renderToBuffer(configuration);
