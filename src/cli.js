@@ -3,6 +3,11 @@ const args = require('yargs').argv;
 const index = require('./index');
 const CommandModel = require('./model/CommandModel');
 const cli = async () => {
-    return index.main(new CommandModel(args.type, args.labels, args.dataset, args.output));
+    let type = args.type;
+    let labels = args.labels
+    let primaryDataset = args.primarydataset;
+    let outputFile = args.outputfile;
+    let commandModel = new CommandModel(type, labels, primaryDataset, outputFile)
+    return index.main(commandModel);
 };
 cli().then(() => {});
