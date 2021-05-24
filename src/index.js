@@ -7,7 +7,7 @@ const JsonFile = require('./model/JsonFile');
 let Index = function () {
     let main = async function (commandModel) {
         const chartJSNodeCanvas = new ChartJSNodeCanvas({ width: 600, height: 400 });
-        const CONFIG_FILE = commandModel.configfile;
+        const CONFIG_FILE = commandModel.configFile;
         const OUTPUT_FILE = commandModel.outputFile;
 
         // const DIRECTORY = 'directory';
@@ -19,7 +19,7 @@ let Index = function () {
         // const EMAIL = '73812536+upptime-bot@users.noreply.github.com';
         // const BRANCH = 'main';
         // const MESSAGE = 'Update App';
-        core.info(commandModel.config + ' ' + commandModel.image)
+        core.info(CONFIG_FILE + ' ' + OUTPUT_FILE)
         // const configuration = {
         //     type: 'bar',
         //     data: {
