@@ -19,7 +19,9 @@ let Index = function () {
 
         core.info(configType + ' ' + configLabels + ' ' + configDataset + ' ' + configOutputFile)
         core.info(JSON.stringify(configDataset));
-        core.info(configDataset.label + ' ' + configDataset.data + ' ' + configDataset.backgroundColor + ' ' + configDataset.borderColor);
+        for(const dataset of configDataset){
+            core.info(dataset.label + ' ' + dataset.data + ' ' + dataset.backgroundColor + ' ' + dataset.borderColor);
+        }
         // const configuration = {
         //     type: CONFIG_TYPE,
         //     data: {
