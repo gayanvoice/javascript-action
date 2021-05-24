@@ -18,7 +18,8 @@ let Index = function () {
         const BRANCH = 'main';
         const MESSAGE = 'Update App';
 
-        core.info(configType + ' ' + configLabels + ' ' + configPrimaryDataset + ' ' + configSecondaryDataset + ''+ configOutputFile)
+        core.info(configType + ' ' + configLabels + ' ' + configPrimaryDataset + ' ' + configSecondaryDataset + ' ' + configOutputFile)
+        core.info(JSON.stringify(configPrimaryDataset));
         // const configuration = {
         //     type: CONFIG_TYPE,
         //     data: {
