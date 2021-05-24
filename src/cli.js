@@ -1,7 +1,10 @@
 #!/usr/bin/env node
 // const index = require('./index');
+const args = require('yargs').argv;
 const cli = async () => {
-    console.log(`input file ${process.argv[2]} output file ${process.argv[3]}`)
+    console.log(args);
+    console.log(`config : ${args.config}`);
+    console.log(`image : ${args.image}`);
     // return index.main();
 };
 cli().then(() => {});

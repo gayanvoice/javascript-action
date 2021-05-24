@@ -1,6 +1,6 @@
 {
   "name": "github-javascript-action",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "GitHub JavaScript Action Template",
   "main": "dist/index.js",
   "scripts": {
@@ -27,10 +27,11 @@
   "homepage": "https://github.com/gayanvoice/javascript-github-action#readme",
   "dependencies": {
     "@actions/core": "1.2.5",
+    "chart.js": "2.9.3",
+    "chartjs-node-canvas": "3.0.8",
     "fs-extra": "9.1.0",
     "simple-git": "2.39.0",
-    "chart.js": "2.9.3",
-    "chartjs-node-canvas": "3.0.8"
+    "yargs": "^17.0.1"
   },
   "devDependencies": {
     "@vercel/ncc": "^0.27.0",
