@@ -10,7 +10,7 @@ let Index = function () {
         const configType = commandModel.type;
         const configLabels = JSON.parse(commandModel.labels);
         const configPrimaryDataset = JSON.parse(commandModel.primaryDataset);
-        const configSecondaryDataset = JSON.parse(commandModel.secondaryDataset);
+        const configSecondaryDataset = commandModel.secondaryDataset;
         const configOutputFile= commandModel.outputFile;
 
         const USERNAME = 'Upptime Bot';
