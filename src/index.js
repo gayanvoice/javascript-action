@@ -20,7 +20,12 @@ let Index = function () {
             type: CONFIG_TYPE,
             data: {
                 labels: CONFIG_LABELS,
-                datasets: CONFIG_DATASET
+                datasets: [{
+                    label: '# of Votes',
+                    data: [12, 19, 3, 5, 2, 3],
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255,99,132,1)'
+                }]
             }
         };
         const image = await chartJSNodeCanvas.renderToBuffer(configuration);
