@@ -16,10 +16,12 @@ let Index = function () {
         const BRANCH = 'main';
         const MESSAGE = 'Update App';
         core.info(CONFIG_TYPE + ' ' + CONFIG_LABELS + ' ' + CONFIG_DATASET + ' ' + OUTPUT_FILE)
+        let config = "[{ label: '# of Votes', data: [12, 19, 3, 5, 2, 3], backgroundColor: 'rgba(255, 99, 132, 0.2)',borderColor:  'rgba(255,99,132,1)',}]"
+        core.info(config)
         const configuration = {
             type: `'${CONFIG_TYPE}'`,
             data: {
-                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                labels: CONFIG_LABELS,
                 datasets: [{
                     label: '# of Votes',
                     data: [12, 19, 3, 5, 2, 3],
