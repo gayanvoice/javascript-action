@@ -1,8 +1,7 @@
-let CommandModel =  function (type,labels, primaryDataset, secondaryDataset, outputFile) {
+let CommandModel =  function (type,labels, dataset, outputFile) {
     this.type = type;
     this.labels = labels;
-    this.primaryDataset = primaryDataset;
-    this.secondaryDataset = secondaryDataset;
+    this.dataset = dataset;
     this.outputFile = outputFile;
 }
 module.exports = CommandModel;

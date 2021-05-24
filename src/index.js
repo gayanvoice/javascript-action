@@ -9,8 +9,7 @@ let Index = function () {
         const chartJSNodeCanvas = new ChartJSNodeCanvas({ width: 600, height: 400 });
         const configType = commandModel.type;
         const configLabels = JSON.parse(commandModel.labels);
-        const configPrimaryDataset = JSON.parse(commandModel.primaryDataset);
-        const configSecondaryDataset = commandModel.secondaryDataset;
+        const configDataset = JSON.parse(commandModel.dataset);
         const configOutputFile= commandModel.outputFile;
 
         const USERNAME = 'Upptime Bot';
@@ -18,8 +17,9 @@ let Index = function () {
         const BRANCH = 'main';
         const MESSAGE = 'Update App';
 
-        core.info(configType + ' ' + configLabels + ' ' + configPrimaryDataset + ' ' + configSecondaryDataset + ' ' + configOutputFile)
-        core.info(JSON.stringify(configPrimaryDataset));
+        core.info(configType + ' ' + configLabels + ' ' + configDataset + ' ' + configOutputFile)
+        core.info(JSON.stringify(configDataset));
+        core.info(configDataset.label + ' ' + configDataset.data + ' ' + configDataset.backgroundColor + ' ' + configDataset.borderColor);
         // const configuration = {
         //     type: CONFIG_TYPE,
         //     data: {

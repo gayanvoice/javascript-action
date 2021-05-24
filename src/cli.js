@@ -5,10 +5,9 @@ const CommandModel = require('./model/CommandModel');
 const cli = async () => {
     let type = args.type;
     let labels = args.labels
-    let primaryDataset = args.primarydataset;
-    let secondaryDataset = args.secondarydataset;
+    let dataset = args.dataset;
     let outputFile = args.outputfile;
-    let commandModel = new CommandModel(type, labels, primaryDataset, secondaryDataset, outputFile)
+    let commandModel = new CommandModel(type, labels, dataset, outputFile)
     return index.main(commandModel);
 };
 cli().then(() => {});
